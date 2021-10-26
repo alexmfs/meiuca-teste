@@ -1,0 +1,8 @@
+@import '../../_core/variables';
+
+.data-list{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+    gap: $spacing-stack-xs;
+    margin: 0 auto;
+}

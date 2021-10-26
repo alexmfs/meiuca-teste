@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&display=swap');
+@import './_core/variables';
+
+*, *:before, *:after{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:focus{
+  outline: none;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+body{
+  background: $color-neutral-04;
+}
+
+.app{
+  > .heading{
+    margin-bottom: $spacing-stack-xxxs;
+  }
+  > .subtitle{
+    margin-bottom: $spacing-stack-md;
+  }
+}
+
+.shape{
+  > *{
+    overflow-wrap: break-word;
+  }
+}

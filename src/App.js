@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import api from './api/api';
+import { Component } from 'react';
+import { CardContent } from './Components/CardContent';
+import { Typography } from './BaseComponents/Typography';
+import { DataList } from './BaseComponents/DataList';
+import { Wrap } from './BaseComponents/Wrap';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends Component{
+
+  state={
+    articles: [],
+  }
+
+  async componentDidMount(){
+    const response = await api.get('');
+    this.setState({ articles: response.data.articles});
+  }
+
+  render(){
+
+    const { articles } = this.state;
+    return(
+      <Wrap className="app">
+
+        <Typography label="Notícias sobre streammings" type="heading"/>
+        <Typography label="" type="subtitle"/>
+
+        <DataList className="articles">
+          {articles.map(article => (
+              <CardContent
+                title={article.title}
+                description={article.description}
+                content={article.content}
+                url={article.url}
+              />
+          ))}
+        </DataList>
+
+      </Wrap>
+    );
+  };
+
+};
 
 export default App;

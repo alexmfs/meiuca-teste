@@ -1,0 +1,10 @@
+@import '../../_core/variables';
+
+.shape{
+    border-radius: $border-radius-none;
+    padding: $spacing-inset-lg;
+    border-width: $border-width-thin;
+    border-color: $color-neutral-04;
+    background-color: $color-neutral-05;
+    align-self: start;
+}
